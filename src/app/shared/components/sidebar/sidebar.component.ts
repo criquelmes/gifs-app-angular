@@ -9,9 +9,13 @@ import { GifsService } from '../../../gifs/services/gifs.service';
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent {
-  constructor(private gifsSetvice: GifsService) {}
+  constructor(private gifsService: GifsService) {}
 
-  get tags() {
-    return this.gifsSetvice.tagsHistory;
+  get tags(): string[] {
+    return this.gifsService.tagsHistory;
+  }
+
+  searchTag(tag: string): void {
+    this.gifsService.searchTag(tag);
   }
 }
